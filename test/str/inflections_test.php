@@ -1,7 +1,7 @@
 <?php
-namespace str\word;
+namespace str;
 
-class NumberInflectionsTest extends \test_case\Unit {
+class InflectionsTest extends \test_case\Unit {
   function test_uncountables() {
     $this->assert_equal(pluralize('information'), 'information');
     $this->assert_equal(pluralize('species'), 'species');

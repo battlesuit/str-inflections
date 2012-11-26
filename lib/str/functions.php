@@ -1,6 +1,47 @@
 <?php
-namespace str\word {
-  Object::number_inflections(function($add) {
+namespace str {
+  
+  /**
+   * Returns a single inflections instance or wraps it into a callable
+   *
+   * @param callable $block
+   * @return Inflections
+   */
+  function inflections($block = null) {
+    static $instance;
+    if(!isset($instance)) $instance = new Inflections();
+    if(is_callable($block)) call_user_func($block, $instance);
+    return $instance;
+  }
+  
+  /**
+   * Pluralizes a given word
+   *
+   * Example
+   *  str\pluralize('mouse'); # => mice
+   *
+   * @param string $word
+   * @return string
+   */  
+  function pluralize($word) {
+    return inflections()->inflect_to('plural', $word);
+  }
+  
+  /**
+   * Singularizes a given word
+   *
+   * Example
+   *  str\singularize('products'); # => product
+   *
+   * @param string $word
+   * @return string
+   */
+  function singularize($word) {
+    return inflections()->inflect_to('singular', $word);
+  }
+  
+  # setting up inflections
+  inflections(function($add) {
     $add->many_words(
       'fish',
       'equipment',

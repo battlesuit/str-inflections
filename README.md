@@ -1,15 +1,13 @@
-bs.str-word
-===========
+bs.str-inflections
+==================
 
-This package holds the `str\Word` class. Every instance should represent one word.  
-At this point there are only plural and singular inflections supported.
-
-The basic inflections are already included.
+Supporting plural and singular inflections.  
+Basic inflections included.
 
 ###Create new inflections
 
     namepsace str {
-      Word::number_inflections(function($add) {
+      inflections(function($add) {
         
         # Adds a uncountable word
         $add->word('equipment');
@@ -29,19 +27,8 @@ The basic inflections are already included.
 
     namespace str {
       
-      # use via object
-      $word = new Word('mouse');
-      $word->pluralize();
-      echo "$word"; # => displays "mice"
-      
       # use via function
-      word\pluralize('product'); # => returns "products"
-      word\singularize('bean'); # => returns "beans"
-      
-      # builder
-      echo Word::create('mouse')->pluralize(); # => displays "mice"
-      
-      # use read() method if you want the value
-      Word::create('mouse')->pluralize()->read(); # => retruns "mice"
+      pluralize('mouse'); # => returns "mice"
+      singularize('bean'); # => returns "beans"
       
     }
