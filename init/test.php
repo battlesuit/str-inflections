@@ -1,6 +1,6 @@
 <?php
 namespace bs {
   require __DIR__.'/../../module.php';
-  import('test', 'str-word');
+  import('test', 'str-inflections');
 }
 ?>
