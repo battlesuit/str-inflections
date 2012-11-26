@@ -1,6 +1,6 @@
 <?php
 namespace bs {
-  require '../../module.php';
-  import('test', 'inflector');
+  require __DIR__.'/../../module.php';
+  import('test', 'str-word');
 }
 ?>
