@@ -1,5 +1,8 @@
 <?php
 namespace str;
+if(defined('loader\available')) require __DIR__."/autoload.php";
+require __DIR__."/functions.php";
+
 /**
  * Inflections for pluralize() and singularize() functions
  *
